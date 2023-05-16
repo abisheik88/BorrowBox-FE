@@ -6,7 +6,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: azure;
 }
-
+body,html{
+  overflow-x: hidden !important;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -14,11 +16,14 @@ code {
 .bs1{
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
+.ant-row{
+  margin :0 20 !important;
+}
 .spinner{
   position:absolute;
   top:50%;
   left:50%;
-  z-index:1;
+  z-index:9999;
 }
 h1{
   font-weight: bold;
@@ -34,11 +39,27 @@ p{
   box-shadow:none !important;
   background-color: white !important;
   color: orangered !important;
-  border: 1px solid orangered !important
+  border: 1px solid orangered !important;
+  padding: 5px 15px !important;
+  outline:none;
+}
+.btn1:focus{
+  border:none !important;
+}
+button{
+  padding:3px 10px !important;
 }
 .header{
   padding: 10px;
 
+}
+.header .ant-btn{
+  box-shadow:none !important;
+  background-color: white !important;
+  color: orangered !important;
+  border: 1px solid orangered !important;
+  padding: 5px 15px !important;
+  outline:none;
 }
 .content{
   min-height: 90vh;
@@ -57,8 +78,10 @@ p{
   height:220px;
 }
 .car:hover > .car-content{
+
   opacity: 1;
   transform:translateY(-40px)
+
 }
 .carimg{
   height:180px;
@@ -71,6 +94,41 @@ p{
   opacity: 0;
   transition: 0.3s;
 }
+.login{
+  background-color: black;
+  padding-top: 10px;
+  min-height:100vh;
+}
+.login label, .login h1{
+  color:white !important;
+  opacity:0.6;
+}
+.login-form{
+  background-color:#1F1F1F;
+}
+.login-form input{
+  background-color: #333333 !important;
+  border:none !important;
+  color:white;
+  opacity:0.5;
+}
+.login-logo{
+  position:absolute;
+  left: 50px;;
+  right:0;
+  top:60%;
+  bottom:50%;
+  transform: translateY(-50%,-50%);
+  font-size:40px;
+  opacity: 0.5 !important;
+
+
+}
+.login a{
+  color:white !important;
+  opacity: 0.5;
+}
+
 
 
 
