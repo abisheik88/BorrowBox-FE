@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button, Col, Dropdown, Row } from 'antd';
-import { Link } from 'react-router-dom';
 
 function DefaultLayout(props) {
     const user = JSON.parse(localStorage.getItem('user'))
