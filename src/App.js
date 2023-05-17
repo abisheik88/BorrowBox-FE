@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, BrowserRouter, Redirect } from 'react-router-dom'
 import './App.css';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -13,16 +13,31 @@ function App() {
 
 
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/booking" element={<Bookingcar />} />
 
-        </Routes>
+        <ProtectedRoute path='/' exact component={Home} />
+        <Route path='/login' exact component={Login} />
+        <Route path='/register' exact component={Register} />
+        <ProtectedRoute path='/bookingcar' exact component={Bookingcar} />
+
       </BrowserRouter>
+
     </div>
   );
 }
 
+
+
 export default App;
+
+
+export function ProtectedRoute(props) {
+
+
+  if (localStorage.getItem('user')) {
+    return <Route {...props} />
+  }
+  else {
+    return <Redirect to='/login' />
+  }
+
+}
