@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif !important;
@@ -6,130 +7,156 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: azure;
 }
-body,html{
+
+body,
+html {
   overflow-x: hidden !important;
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.bs1{
+
+.bs1 {
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
-.ant-row{
-  margin :0 20 !important;
+
+.ant-row {
+  margin: 0 20 !important;
 }
-.spinner{
-  position:absolute;
-  top:50%;
-  left:50%;
-  z-index:9999;
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
 }
-h1{
+
+h1 {
   font-weight: bold;
-  font-size:30px;
-  color:orangered
+  font-size: 30px;
+  color: orangered
 }
-p{
+
+p {
   margin: 5px !important;
-  text-align: left;
+
   padding: 0;
 }
-.btn1{
-  box-shadow:none !important;
+
+.btn1 {
+  box-shadow: none !important;
   background-color: white !important;
   color: orangered !important;
   border: 1px solid orangered !important;
   padding: 5px 15px !important;
-  outline:none;
+  outline: none;
 }
-.btn1:focus{
-  border:none !important;
+
+.btn1:focus {
+  border: none !important;
 }
-button{
-  padding:3px 10px !important;
+
+button {
+  padding: 3px 10px !important;
 }
-.header{
+
+.header {
   padding: 10px;
 
 }
-.header .ant-btn{
-  box-shadow:none !important;
+
+.header .ant-btn {
+  box-shadow: none !important;
   background-color: white !important;
   color: orangered !important;
   border: 1px solid orangered !important;
   padding: 5px 15px !important;
-  outline:none;
+  outline: none;
 }
-.content{
+
+.content {
   min-height: 90vh;
 
 }
 
 
 /* This is for Animation UI purpose */
-.car{
-  border-radius:5px;
+.car {
+  border-radius: 5px;
   margin-top: 100px;
-  height:160px;
+  height: 160px;
   transition: 0.3s;
 }
-.car:hover{
-  height:220px;
+
+.car:hover {
+  height: 220px;
 }
-.car:hover > .car-content{
+
+.car:hover>.car-content {
 
   opacity: 1;
-  transform:translateY(-40px)
+  transform: translateY(-40px)
+}
 
-}
-.carimg{
-  height:180px;
-  width:auto;
+.carimg {
+  height: 180px;
+  width: auto;
   border-radius: 5px;
-  transform:translateY(-50px)
+  transform: translateY(-50px)
 }
-.car-content{
+
+.car-content {
   transform: translateY(-200px);
   opacity: 0;
   transition: 0.3s;
 }
-.login{
+
+.login {
   background-color: black;
   padding-top: 10px;
-  min-height:100vh;
+  min-height: 100vh;
 }
-.login label, .login h1{
-  color:white !important;
-  opacity:0.6;
+
+.login label,
+.login h1 {
+  color: white !important;
+  opacity: 0.6;
 }
-.login-form{
-  background-color:#1F1F1F;
+
+.login-form {
+  background-color: #1F1F1F;
 }
-.login-form input{
+
+.login-form input {
   background-color: #333333 !important;
-  border:none !important;
-  color:white;
-  opacity:0.5;
+  border: none !important;
+  color: white;
+  opacity: 0.5;
 }
-.login-logo{
-  position:absolute;
-  left: 50px;;
-  right:0;
-  top:60%;
-  bottom:50%;
-  transform: translateY(-50%,-50%);
-  font-size:40px;
+
+.login-logo {
+  position: absolute;
+  left: 50px;
+  ;
+  right: 0;
+  top: 60%;
+  bottom: 50%;
+  transform: translateY(-50%, -50%);
+  font-size: 40px;
   opacity: 0.5 !important;
 
 
 }
-.login a{
-  color:white !important;
+
+.login a {
+  color: white !important;
   opacity: 0.5;
 }
 
-
-
-
-
+.carimg2 {
+  height: 400px;
+  border-radius: 10px;
+  width: auto;
+}

@@ -7,9 +7,11 @@ function DefaultLayout(props) {
         {
             key: '1',
             label: (
-                <a href="https://www.antgroup.com">
+                <li onClick={() => {
+                    window.location.href = '/'
+                }}>
                     Home
-                </a>
+                </li>
             ),
         },
         {
