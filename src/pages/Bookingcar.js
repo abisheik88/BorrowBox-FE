@@ -23,6 +23,8 @@ function Bookingcar({ match }) {
     const [driver, setdriver] = useState(false)
     const [totalAmount, setTotalAmount] = useState(0)
 
+    const [timeSlots, setTimeSlots] = useState({ from: null, to: null });
+
 
     useEffect(() => {
 
@@ -38,27 +40,11 @@ function Bookingcar({ match }) {
     useEffect(() => {
         setTotalAmount(((totalHours + 1) * car.rentPerHour))
         if (driver) {
-            setTotalAmount(totalAmount + (30 * totalHours))
+            setTotalAmount(totalAmount + (30 * (totalHours + 1)))
         }
     }, [driver, totalHours])
 
-    // function selectTimeSlots(values) {
-    //     const startDate = values[0].startOf('minute');
-    //     const endDate = values[1].endOf('minute');
-    //     console.log(startDate)
-    //     const startFormatted = moment(startDate).format('MMM DD YYYY HH:mm');
-    //     const endFormatted = moment(endDate).format('MMM DD YYYY HH:mm');
-    //     console.log('Start Date:', startFormatted);
-    //     console.log('End Date:', endFormatted);
-    //     // console.log(values)
-    //     console.log(values[0].$d)
-    //     // const dateString = "Sat May 20 2023 10:29:22 GMT+0530 (India Standard Time)";
-    //     const dateObj = new Date(values[0].$d);
-    //     const formattedDate = dateObj.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
-    //     console.log(dateObj.toDateString())
 
-    //     console.log(formattedDate)
-    // }
 
     function selectTimeSlots(values) {
         // console.log(values);
@@ -67,7 +53,31 @@ function Bookingcar({ match }) {
         setFrom(moment(values[0]).format('MMM DD YYYY HH:mm'))
         setTo(moment(values[1]).format('MMM DD YYYY HH:mm'))
 
+        const dateString = values[0].$d;
+        const date = new Date(dateString);
+        const from = date.toLocaleString('en-IN', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true,
+            timeZone: 'Asia/Kolkata'
+        });
+        const dateString1 = values[1].$d;
+        const date1 = new Date(dateString1);
+        const to = date1.toLocaleString('en-IN', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true,
+            timeZone: 'Asia/Kolkata'
+        });
+
         setTotalHours(values[1].diff(values[0], 'hours'))
+        setTimeSlots({ from, to })
     }
 
     function bookNow() {
@@ -79,12 +89,9 @@ function Bookingcar({ match }) {
             totalHours,
             totalAmount,
             driverRequire: driver,
-            bookedTimeSlots: {
-                from,
-                to
-            }
+            bookedTimeSlots: timeSlots
         }
-        console.log(reqObj)
+        // console.log(reqObj)
         dispatch(bookCar(reqObj))
     }
 
