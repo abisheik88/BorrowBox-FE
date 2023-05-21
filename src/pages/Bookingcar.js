@@ -3,7 +3,7 @@ import DefaultLayout from '../components/DefaultLayout'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllCars } from '../redux/actions/carsActions'
 import Spinner from '../components/Spinner'
-import { Col, Divider, Row, DatePicker, Checkbox } from 'antd'
+import { Col, Divider, Row, DatePicker, Checkbox, Modal } from 'antd'
 import moment from 'moment'
 import { bookCar } from '../redux/actions/bookingActions'
 
@@ -22,8 +22,8 @@ function Bookingcar({ match }) {
     const [totalHours, setTotalHours] = useState()
     const [driver, setdriver] = useState(false)
     const [totalAmount, setTotalAmount] = useState(0)
-
     const [timeSlots, setTimeSlots] = useState({ from: null, to: null });
+    const [showModal, setShowModal] = useState(false)
 
 
     useEffect(() => {
@@ -118,6 +118,8 @@ function Bookingcar({ match }) {
                         showTime={{ format: 'HH:mm' }}
                         format='MMM DD YYYY HH:mm'
                         onChange={selectTimeSlots} />
+                    <br />
+                    <button className='btn1 mt-2' onClick={() => { setShowModal(true) }}>See Booked Slots</button>
                     {from && to && (
                         <div>
                             <p>Total Hours :{totalHours + 1}</p>
@@ -136,7 +138,31 @@ function Bookingcar({ match }) {
                     )}
 
                 </Col>
+                {car.name && (<Modal open={showModal} closable={false} footer={false} title='Booked Time Slots'>
+
+                    <div className='p-2'>
+
+                        {car.bookedTimeSlots.map((slot) => {
+                            return (
+                                <button className='btn1 mt-2'>
+                                    {slot.from} - {slot.to}
+                                </button>
+                            )
+                        })}
+
+                        <div className='text-right mt-5'>
+
+                            <button className='btn1' onClick={() => {
+                                setShowModal(false)
+                            }}>Close</button>
+                        </div>
+
+                    </div>
+
+                </Modal>)}
             </Row>
+
+
         </DefaultLayout>
     )
 }
