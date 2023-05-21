@@ -38,9 +38,9 @@ function Bookingcar({ match }) {
     }, [cars])
 
     useEffect(() => {
-        setTotalAmount(((totalHours) * car.rentPerHour))
+        setTotalAmount(((totalHours + 1) * car.rentPerHour))
         if (driver) {
-            setTotalAmount(totalAmount + (30 * (totalHours)))
+            setTotalAmount(totalAmount + (30 * (totalHours + 1)))
         }
     }, [driver, totalHours])
 
@@ -118,20 +118,22 @@ function Bookingcar({ match }) {
                         showTime={{ format: 'HH:mm' }}
                         format='MMM DD YYYY HH:mm'
                         onChange={selectTimeSlots} />
-                    <div>
-                        <p>Total Hours :{totalHours}</p>
-                        <p>Rent Per Hour: <b>{car.rentPerHour}</b></p>
-                        <Checkbox onChange={(e) => {
-                            if (e.target.checked) {
-                                setdriver(true)
-                            } else {
-                                setdriver(false)
-                            }
-                        }}>Driver Required</Checkbox>
-                        <h3>Total Amount:{totalAmount}</h3>
+                    {from && to && (
+                        <div>
+                            <p>Total Hours :{totalHours + 1}</p>
+                            <p>Rent Per Hour: <b>{car.rentPerHour}</b></p>
+                            <Checkbox onChange={(e) => {
+                                if (e.target.checked) {
+                                    setdriver(true)
+                                } else {
+                                    setdriver(false)
+                                }
+                            }}>Driver Required</Checkbox>
+                            <h3>Total Amount:{totalAmount}</h3>
 
-                        <button className="btn1" onClick={(bookNow)}>Book Now</button>
-                    </div>
+                            <button className="btn1" onClick={(bookNow)}>Book Now</button>
+                        </div>
+                    )}
 
                 </Col>
             </Row>
