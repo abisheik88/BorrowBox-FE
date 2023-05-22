@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Col, Dropdown, Row } from 'antd';
+import { Link } from 'react-router-dom';
 
 function DefaultLayout(props) {
     const user = JSON.parse(localStorage.getItem('user'))
@@ -17,9 +18,11 @@ function DefaultLayout(props) {
         {
             key: '2',
             label: (
-                <a href="https://www.antgroup.com">
+                <li onClick={() => {
+                    window.location.href = '/userbookings'
+                }}>
                     Bookings
-                </a>
+                </li>
             ),
         },
         {
@@ -47,7 +50,9 @@ function DefaultLayout(props) {
                     <Col lg={20} sm={24} xs={24}>
                         <div className="d-flex justify-content-between">
 
-                            <h1>Borrow Box</h1>
+                            <h1 onClick={() => {
+                                window.location.href = '/'
+                            }}>Borrow Box</h1>
 
                             <Dropdown
                                 menu={{

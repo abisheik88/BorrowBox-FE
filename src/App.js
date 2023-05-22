@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Bookingcar from './pages/Bookingcar';
 import 'antd/dist/reset.css'
+import UserBookings from './pages/UserBookings';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/login' exact component={Login} />
         <Route path='/register' exact component={Register} />
         <ProtectedRoute path='/booking/:carid' exact component={Bookingcar} />
+        <ProtectedRoute path='/userbookings' exact component={UserBookings} />
 
       </BrowserRouter>
 
