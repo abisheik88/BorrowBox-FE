@@ -81,6 +81,11 @@ button {
 
 }
 
+.footer {
+  background-color: aliceblue;
+  padding: 10px;
+}
+
 
 /* This is for Animation UI purpose */
 .car {
@@ -159,4 +164,13 @@ button {
   height: 400px;
   border-radius: 10px;
   width: auto;
+}
+
+svg {
+  height: 20px !important;
+  width: 20px !important;
+}
+
+a {
+  color: orangered !important;
 }

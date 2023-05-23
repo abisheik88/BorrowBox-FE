@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button, Col, Dropdown, Row } from 'antd';
-import { Link } from 'react-router-dom';
 
 function DefaultLayout(props) {
     const user = JSON.parse(localStorage.getItem('user'))
@@ -28,9 +27,11 @@ function DefaultLayout(props) {
         {
             key: '3',
             label: (
-                <a href="https://www.aliyun.com">
-                    Profile
-                </a>
+                <li onClick={() => {
+                    window.location.href = '/admin'
+                }}>
+                    Admin
+                </li>
             ),
         },
         {
@@ -70,6 +71,12 @@ function DefaultLayout(props) {
             </div>
             <div className="content">
                 {props.children}
+            </div>
+            <div className='footer text-center'>
+                <hr />
+                <p>Designed and Developed by</p>
+
+                <p>Abisheik</p>
             </div>
         </div>
     )

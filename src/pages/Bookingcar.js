@@ -8,8 +8,6 @@ import moment from 'moment'
 import { bookCar } from '../redux/actions/bookingActions'
 import StripeCheckout from 'react-stripe-checkout'
 
-// import Datetime from 'react-datetime';
-// import 'react-datetime/css/react-datetime.css';
 
 const { RangePicker } = DatePicker;
 function Bookingcar({ match }) {
@@ -100,8 +98,8 @@ function Bookingcar({ match }) {
         <DefaultLayout>
             {loading && (<Spinner />)}
             <Row justify='center' className='d-flex align-items-center' style={{ minHeight: '90vh' }}>
-                <Col lg={12} sm={24} xs={24}>
-                    <img src={car.image} className='carimg2 bs1' alt={car.name} />
+                <Col lg={12} sm={24} xs={24} className='p-3'>
+                    <img src={car.image} className='carimg2 bs1 w-100 ' alt={car.name} />
                 </Col>
                 <Col lg={10} sm={24} xs={24} className='text-right'>
                     <Divider type='horizontal' dashed style={{ borderColor: 'black' }}>Car Info</Divider>

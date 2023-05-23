@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import DefaultLayout from '../components/DefaultLayout'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllBookings } from '../redux/actions/bookingActions'
@@ -26,7 +26,7 @@ function UserBookings() {
 
 
 
-                    {bookings.filter(o => o.user == user._id).map(booking => {
+                    {bookings.filter(o => o.user === user._id).map(booking => {
 
                         return <Row gutter={16} className='bs1 mt-3 text-left ' >
                             <Col lg={6} sm={24}>
