@@ -3,6 +3,8 @@ import { Button, Col, Dropdown, Row } from 'antd';
 
 function DefaultLayout(props) {
     const user = JSON.parse(localStorage.getItem('user'))
+    const isAdmin = user && user.role === 'admin';
+
     const items = [
         {
             key: '1',
@@ -24,7 +26,7 @@ function DefaultLayout(props) {
                 </li>
             ),
         },
-        {
+        isAdmin && {
             key: '3',
             label: (
                 <li onClick={() => {
