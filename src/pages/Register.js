@@ -31,14 +31,14 @@ function Register() {
                     <Form layout='vertical' className='login-form p-5' onFinish={onFinish}>
                         <h1>Register</h1>
                         <hr />
-                        <Form.Item name='username' label='Username' rules={[{ required: true }]}>
+                        <Form.Item name='username' label='Username' rules={[{ required: true, message: 'Please Enter the Username' }]}>
                             <Input />
                         </Form.Item>
-                        <Form.Item name='password' label='Password' rules={[{ required: true }]}>
-                            <Input />
+                        <Form.Item name='password' label='Password' rules={[{ required: true, message: 'Please input your password!' }]}>
+                            <Input type='password' placeholder="Password" />
                         </Form.Item>
                         <Form.Item name='cpassword' label='Confirm Password' rules={[{ required: true }]}>
-                            <Input />
+                            <Input type='password' placeholder="Confirm Password" />
                         </Form.Item>
 
                         <button className='btn1 mt-1 mb-2'>Register</button>
